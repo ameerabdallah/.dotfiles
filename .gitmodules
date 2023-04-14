@@ -1,3 +1,8 @@
-[submodule "nvim/.config/nvim"]
-	path = nvim/.config/nvim
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
+[submodule "nvim-config"]
+	path = nvim-config
 	url = git@github.com:ameerabdallah/nvim-config.git
+	ignore = dirty
