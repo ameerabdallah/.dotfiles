@@ -6,4 +6,16 @@
 - clean: ['~']
 
 - link:
-    ~/.config/nvim: 'nvim-config'
+    ~/.config/nvim:
+      path: 'nvim-config'
+      force: true
+    ~/.tmux.conf:
+      path: 'tmux.conf'
+      force: true
+
+- shell:
+  -
+    command: git submodule update --init --recursive
+    description: 'Syncing submodules...'
+    stdout: true
+    stderr: true
