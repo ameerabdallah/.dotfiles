@@ -1,5 +1,5 @@
 RESTORE='%{$reset_color%}'
-NEWLINE=$'\n'
+NEWLINE=$'%{\n%}'
 
 source ~/.git-prompt.sh
 setopt prompt_subst
@@ -19,9 +19,9 @@ function update_current_git_vars () {
 function changes_in_branch() {
   if git rev-parse --git-dir > /dev/null 2>&1; then
     if expr "$(git status -s)" 2>&1 >  /dev/null; then
-      echo -n "%{${fg[yellow]%}$(__git_ps1)%f"
+      echo -n "%{${fg[yellow]%}$(__git_ps1)"
     else
-      echo -n "%{${fg[green]%}$(__git_ps1)%f"
+      echo -n "%{${fg[green]%}$(__git_ps1)"
     fi
   fi
 }
@@ -52,8 +52,8 @@ function add_git_vars_to_prompt() {
   PROMPT+="%{$fg[white]%}:"
   PROMPT+="%{$fg_bold[cyan]%}%~"
   PROMPT+="${GIT_BRANCH}"
-  PROMPT+="%F{red}${GIT_BEHIND}"
-  PROMPT+="%F{green}${GIT_AHEAD}${NEWLINE}"
+  PROMPT+="%{%F{red}%}${GIT_BEHIND}"
+  PROMPT+="%{%F{green}%}${GIT_AHEAD}${NEWLINE}"
   PROMPT+="%{$fg_bold[green]%}└─ %{$fg_bold[yellow]%}\$ ${RESTORE}"
 }
 
