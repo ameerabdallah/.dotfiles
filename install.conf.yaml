@@ -17,7 +17,7 @@
       glob: true
     ~/.oh-my-zsh/custom/:
       glob: true
-      path: 'oh-my-zsh/custom/**'
+      path: 'oh-my-zsh/custom/*/*'
     ~/.git-prompt.sh:
       path: '.git-prompt.sh'
       force: true
