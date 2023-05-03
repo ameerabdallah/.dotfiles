@@ -27,9 +27,4 @@
     description: 'Syncing submodules...'
     stdout: true
     stderr: true
-  - 'Install oh-my-zsh':
-    command: '[ -d ~/.oh-my-zsh/ ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";'
-    description: 'Installing oh-my-zsh...'
-    stdout: true
-    stderr: true
 
