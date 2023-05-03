@@ -1,3 +1,9 @@
 #!/bin/zsh
 
 bindkey '^j' autosuggest-accept
+
+profile_bindings=~/.profile_bindings
+
+if [ -f $profile_bindings ]; then
+    source ~/.profile_bindings
+fi

@@ -1,1 +1,7 @@
 # Insert paths
+
+profile_paths=~/.profile_paths
+
+if [ -f $profile_paths ]; then
+    source $profile_paths
+fi

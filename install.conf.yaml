@@ -30,4 +30,8 @@
     description: 'Syncing submodules...'
     stdout: true
     stderr: true
-
+  - 'Touch zsh profiles':
+    command: touch ~/.profile_aliases && touch ~/.profile_bindings && touch ~/.profile_paths
+    description: 'Touching/Creating zsh profile files...'
+    stdout: true
+    stderr: true
