@@ -1,6 +1,8 @@
 # Insert aliases
 
-alias yay="sudo apt-get update;sudo apt-get upgrade;"
-alias ssh-nas="ssh -l aabdallah abdallahnas.net -p 21683"
 alias rport="shuf -i 1024-65535 -n 1"
-alias sbashrc="source ~/.bashrc"
+
+profile_aliases="~/.profile_aliases"
+if [ -d "profile_aliases" ]; then
+    source "$profile_aliases"
+fi
