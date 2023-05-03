@@ -75,7 +75,11 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-GIT_PROMPT_EXECUTABLE="haskell"
+profile=~/.profile
+
+if [ -f "$profile" ]; then
+    source "$profile"
+fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
