@@ -15,8 +15,8 @@
     ~/.zshrc:
       path: 'zsh-config/.zshrc'
       force: true
-    ~/.oh-my-zsh/custom/themes/ameer.zsh-theme:
-      path: 'oh-my-zsh/custom/themes/ameer.zsh-theme'
+    ~/.oh-my-zsh/custom/:
+      path: 'oh-my-zsh/custom/'
       force: true
     ~/.git-prompt.sh:
       path: '.git-prompt.sh'

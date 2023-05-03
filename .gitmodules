@@ -6,3 +6,6 @@
 	path = nvim-config
 	url = git@github.com:ameerabdallah/nvim-config.git
 	ignore = dirty
+[submodule "oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
