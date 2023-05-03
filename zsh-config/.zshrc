@@ -81,6 +81,9 @@ plugins=(
 export SHELL=/bin/zsh
 
 source $ZSH/oh-my-zsh.sh
+source ~/.zsh_bindings
+source ~/.zsh_aliases
+source ~/.zsh_paths
 
 # User configuration
 profile=~/.profile
