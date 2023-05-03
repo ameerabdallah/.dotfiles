@@ -21,6 +21,9 @@
     ~/.git-prompt.sh:
       path: '.git-prompt.sh'
       force: true
+    ~/.config/kitty/kitty.conf:
+      path: 'kitty/kitty.conf'
+      force: true
 - shell:
   - 'Sync submodules':
     command: git submodule update --init --recursive
