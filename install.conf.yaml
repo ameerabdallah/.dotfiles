@@ -15,9 +15,11 @@
     ~/:
       path: 'zsh-config/.**'
       glob: true
+      force: true
     ~/.oh-my-zsh/custom/:
       glob: true
       path: 'oh-my-zsh/custom/*/*'
+      force: true
     ~/.git-prompt.sh:
       path: '.git-prompt.sh'
       force: true
