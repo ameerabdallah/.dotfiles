@@ -1,6 +1,3 @@
-RESTORE='%{$reset_color%}'
-NEWLINE=$'%{\n%}'
-
 source ~/.git-prompt.sh
 setopt prompt_subst
 
@@ -17,13 +14,15 @@ function update_current_git_vars () {
 }
 
 function changes_in_branch() {
+  value=""
   if git rev-parse --git-dir > /dev/null 2>&1; then
     if expr "$(git status -s)" 2>&1 >  /dev/null; then
-      echo -n "%{${fg[yellow]%}$(__git_ps1)"
+      value="%{${fg[yellow]%}$(__git_ps1)%{$reset_color%}"
     else
-      echo -n "%{${fg[green]%}$(__git_ps1)"
+      value="%{${fg[green]%}$(__git_ps1)%{$reset_color%}"
     fi
   fi
+  echo -n $value
 }
 
 function get_git_ahead() {
@@ -33,7 +32,7 @@ function get_git_ahead() {
   else
     value=" +$value"
   fi
-  echo "$value"
+  echo -n "$value"
 }
 
 function get_git_behind() {
@@ -43,17 +42,16 @@ function get_git_behind() {
   else
     value=" -$value"
   fi
-  echo "$value"
+  echo -n "$value"
 }
 
-
 function add_git_vars_to_prompt() {
-  PROMPT="%{$fg_bold[red]%}%n"
-  PROMPT+="%{$fg[white]%}:"
-  PROMPT+="%{$fg_bold[cyan]%}%~"
+  PROMPT="%{$fg_bold[red]%}%n%{$reset_color%}"
+  PROMPT+="%{$fg[white]%}:%{$reset_color%}"
+  PROMPT+="%{$fg_bold[cyan]%}%~%{$reset_color%}"
   PROMPT+="${GIT_BRANCH}"
-  PROMPT+="%{%F{red}%}${GIT_BEHIND}"
-  PROMPT+="%{%F{green}%}${GIT_AHEAD}${NEWLINE}"
-  PROMPT+="%{$fg_bold[green]%}└─ %{$fg_bold[yellow]%}\$ ${RESTORE}"
+  PROMPT+="%{%F{red}%}${GIT_BEHIND}%{$reset_color%}"
+  PROMPT+="%{%F{green}%}${GIT_AHEAD}%{$reset_color%}"$'\n'
+  PROMPT+="%{$fg_bold[green]%}└─ %{$fg_bold[yellow]%}\$ %{$reset_color%}"
 }
 

@@ -91,7 +91,7 @@ profile=~/.profile
 if [ -f "$profile" ]; then
     source "$profile"
 fi
-
+TERM='screen-256color'
 eval $(thefuck --alias)
 
 # export MANPATH="/usr/local/man:$MANPATH"
