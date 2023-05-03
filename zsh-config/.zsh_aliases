@@ -3,6 +3,6 @@
 alias rport="shuf -i 1024-65535 -n 1"
 
 profile_aliases="~/.profile_aliases"
-if [ -d "$profile_aliases" ]; then
+if [ -f "$profile_aliases" ]; then
     source "$profile_aliases"
 fi
