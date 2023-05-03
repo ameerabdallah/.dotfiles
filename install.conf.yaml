@@ -12,10 +12,24 @@
     ~/.tmux.conf:
       path: 'tmux.conf'
       force: true
-
+    ~/.zshrc:
+      path: 'zsh-config/.zshrc'
+      force: true
+    ~/.oh-my-zsh/custom/themes/ameer.zsh-theme:
+      path: 'oh-my-zsh/custom/themes/ameer.zsh-theme'
+      force: true
+    ~/.git-prompt.sh:
+      path: '.git-prompt.sh'
+      force: true
 - shell:
-  -
+  - 'Sync submodules':
     command: git submodule update --init --recursive
     description: 'Syncing submodules...'
     stdout: true
     stderr: true
+  - 'Install oh-my-zsh':
+    command: '[ -d ~/.oh-my-zsh/ ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";'
+    description: 'Installing oh-my-zsh...'
+    stdout: true
+    stderr: true
+
