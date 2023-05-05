@@ -35,3 +35,8 @@
     description: 'Touching/Creating zsh profile files...'
     stdout: true
     stderr: true
+  - 'Install nerd fonts':
+    command: ./nerd-fonts/install.sh Hack
+    description: 'Installing nerd fonts...'
+    stdout: true
+    stderr: true
