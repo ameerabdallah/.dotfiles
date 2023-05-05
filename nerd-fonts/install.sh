@@ -64,17 +64,18 @@ do
     echo "$font Nerd Font installed"
 done
 
-# update the font cache (not necessary on macOS)
-if [ "$os" == "Linux" ]; then
-    echo "Updating font cache"
-    fc-cache -f -v
-fi
 
 if [ "$all_fonts_installed" == "true" ]; then
     echo "All fonts are already installed"
 else
+    # update the font cache (not necessary on macOS)
+    if [ "$os" == "Linux" ]; then
+        echo "Updating font cache"
+        fc-cache -f -v
+    fi
     echo "All fonts installed successfully"
 fi
+
 # clear temp directory
 rm -r "$tmp_dir"
 
