@@ -12,6 +12,3 @@
 [submodule "oh-my-zsh/custom/plugins/zsh-autosuggestions"]
 	path = oh-my-zsh/custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule "nerd-fonts"]
-	path = nerd-fonts
-	url = https://github.com/ryanoasis/nerd-fonts.git
