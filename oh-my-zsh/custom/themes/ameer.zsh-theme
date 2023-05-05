@@ -54,6 +54,6 @@ function add_git_vars_to_prompt() {
     PROMPT+="${GIT_BRANCH}"
     PROMPT+="%{%F{red}%}${GIT_BEHIND}%{%f%}"
     PROMPT+="%{%F{green}%}${GIT_AHEAD}%{%f%}"$'\n'
-    PROMPT+="%{%F{green}%}└─ %{$fg_bold[yellow]%}\$ %{%f%}"
+    PROMPT+="%{%F{green}%}└─ %{%F{yellow}%}\$ %{%f%}"
 }
 
