@@ -40,3 +40,8 @@
     description: 'Installing nerd fonts...'
     stdout: true
     stderr: true
+  - 'Run PackerSync':
+    command: nvim --headless -c 'so ~/.config/nvim/lua/aabdallah/packer.lua' -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+    description: 'Running PackerSync...'
+    stdout: true
+    stderr: true
