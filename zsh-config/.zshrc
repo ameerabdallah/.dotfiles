@@ -1,6 +1,24 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+
+export SHELL=/bin/zsh
+export EDITOR='nvim'
+
+source $ZSH/oh-my-zsh.sh
+source ~/.zsh_bindings
+source ~/.zsh_aliases
+source ~/.zsh_paths
+
+# User configuration
+profile=~/.profile
+
+if [ -f "$profile" ]; then
+    source "$profile"
+fi
+TERM='screen-256color'
+
+eval $(thefuck --alias)
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -65,8 +83,6 @@ HYPHEN_INSENSITIVE="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-eval $(thefuck --alias)
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -79,22 +95,6 @@ plugins=(
     zsh-autosuggestions
     thefuck
 )
-
-export SHELL=/bin/zsh
-export EDITOR='nvim'
-
-source $ZSH/oh-my-zsh.sh
-source ~/.zsh_bindings
-source ~/.zsh_aliases
-source ~/.zsh_paths
-
-# User configuration
-profile=~/.profile
-
-if [ -f "$profile" ]; then
-    source "$profile"
-fi
-TERM='screen-256color'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
