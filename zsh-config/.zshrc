@@ -5,7 +5,6 @@
 export SHELL=/bin/zsh
 export EDITOR='nvim'
 
-source $ZSH/oh-my-zsh.sh
 source ~/.zsh_bindings
 source ~/.zsh_aliases
 source ~/.zsh_paths
@@ -95,6 +94,8 @@ plugins=(
     zsh-autosuggestions
     thefuck
 )
+
+source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
