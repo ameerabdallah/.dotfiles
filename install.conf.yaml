@@ -18,7 +18,7 @@
     stdout: true
     stderr: true
   -
-    command: ./nerd-fonts/install.sh Hack
+    command: ./scripts/install_nerd_fonts.sh Hack
     description: 'Installing nerd fonts...'
     stdout: true
     stderr: true
@@ -41,6 +41,10 @@
       force: true
     ~/.config/kitty/kitty.conf:
       path: 'kitty/kitty.conf'
+      force: true
+    ~/.local/bin/:
+      path: 'scripts/*'
+      glob: true
       force: true
 
 - create:

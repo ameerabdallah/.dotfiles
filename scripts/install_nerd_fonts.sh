@@ -38,7 +38,6 @@ do
     # replace spaces with dashes
     font_file=${font// /-}
 
-    echo "$font_dir/$font_file"
     if [ -d "$font_dir/$font_file" ]; then
         echo "$font Nerd Font is already installed"
         continue
