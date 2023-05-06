@@ -5,8 +5,6 @@
 export SHELL=/bin/zsh
 export EDITOR='nvim'
 
-source ~/.zsh_bindings
-source ~/.zsh_aliases
 source ~/.zsh_paths
 
 # User configuration
@@ -96,6 +94,8 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source ~/.zsh_bindings
+source ~/.zsh_aliases
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
