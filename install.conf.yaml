@@ -3,7 +3,25 @@
       relink: true
       create: true
 
-- clean: ['~']
+- clean: ['~', '~/.config']
+
+# Shell is put before link because we need to create the zsh config files before linking them
+- shell:
+  - 
+    command: git submodule update --init --recursive
+    description: 'Syncing submodules...'
+    stdout: true
+    stderr: true
+  -
+    command: '[ -d ~/.oh-my-zsh/ ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended'
+    description: 'Installing oh-my-zsh...'
+    stdout: true
+    stderr: true
+  -
+    command: ./nerd-fonts/install.sh Hack
+    description: 'Installing nerd fonts...'
+    stdout: true
+    stderr: true
 
 - link:
     ~/.config/nvim:
@@ -24,24 +42,9 @@
     ~/.config/kitty/kitty.conf:
       path: 'kitty/kitty.conf'
       force: true
-- shell:
-  - 'Sync submodules':
-    command: git submodule update --init --recursive
-    description: 'Syncing submodules...'
-    stdout: true
-    stderr: true
-  - 'Touch zsh profiles':
-    command: touch ~/.profile_aliases && touch ~/.profile_bindings && touch ~/.profile_paths
-    description: 'Touching/Creating zsh profile files...'
-    stdout: true
-    stderr: true
-  - 'Install nerd fonts':
-    command: ./nerd-fonts/install.sh Hack
-    description: 'Installing nerd fonts...'
-    stdout: true
-    stderr: true
-  - 'Run PackerSync':
-    command: nvim --headless -c 'so ~/.config/nvim/lua/aabdallah/packer.lua' -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-    description: 'Running PackerSync...'
-    stdout: true
-    stderr: true
+
+- create:
+    - ~/.profile # This is a zsh profile file
+    - ~/.profile_aliases
+    - ~/.profile_bindings
+    - ~/.profile_paths

@@ -1,6 +1,7 @@
 # Insert aliases
 
 alias rport="shuf -i 1024-65535 -n 1"
+alias vim="nvim"
 
 profile_aliases=~/.profile_aliases
 if [ -f $profile_aliases ]; then

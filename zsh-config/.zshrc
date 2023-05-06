@@ -21,7 +21,7 @@ ZSH_THEME="ameer"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
@@ -65,6 +65,8 @@ ZSH_THEME="ameer"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+eval $(thefuck --alias)
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -79,6 +81,7 @@ plugins=(
 )
 
 export SHELL=/bin/zsh
+export EDITOR='nvim'
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh_bindings
@@ -92,7 +95,6 @@ if [ -f "$profile" ]; then
     source "$profile"
 fi
 TERM='screen-256color'
-eval $(thefuck --alias)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

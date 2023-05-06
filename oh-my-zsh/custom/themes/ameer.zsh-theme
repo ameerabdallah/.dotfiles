@@ -8,6 +8,8 @@ autoload -U add-zsh-hook
 add-zsh-hook precmd __git_ps1
 add-zsh-hook precmd update_current_git_vars
 
+darker_yellow="%{%F{184}%}"
+
 function update_current_git_vars () {
     GIT_AHEAD=$(get_git_ahead)
     GIT_BEHIND=$(get_git_behind)
@@ -19,12 +21,12 @@ function changes_in_branch() {
     value=""
     if git rev-parse --git-dir > /dev/null 2>&1; then
         if [ -n "$(git status -s)" ]; then
-            value="%{%F{yellow}%}$(__git_ps1)%{%f%}"
+            value="${darker_yellow}$(__git_ps1)%{%f%}"
         else
             value="%{%F{green}%}$(__git_ps1)%{%f%}"
         fi
     fi
-    echo -n $value
+    echo -n "$value"
 }
 
 function get_git_ahead() {
@@ -50,10 +52,10 @@ function get_git_behind() {
 function add_git_vars_to_prompt() {
     PROMPT="%{%F{red}%}%n%{%f%}"
     PROMPT+="%{%F{white}%}:%{%f%}"
-    PROMPT+="%{%F{cyan}%}%~%{%f%}"
+    PROMPT+="%{%B%}%{%F{cyan}%}%~%{%f%}"
     PROMPT+="${GIT_BRANCH}"
     PROMPT+="%{%F{red}%}${GIT_BEHIND}%{%f%}"
     PROMPT+="%{%F{green}%}${GIT_AHEAD}%{%f%}"$'\n'
-    PROMPT+="%{%F{green}%}└─ %{%F{yellow}%}\$ %{%f%}"
+    PROMPT+="%{%F{green}%}└─ %{%F{yellow}%}\$ %{%f%}%{%b%}"
 }
 
