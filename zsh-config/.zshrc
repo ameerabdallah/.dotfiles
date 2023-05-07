@@ -56,3 +56,13 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.zsh_aliases
 bindkey '^j' autosuggest-accept
+
+# Start ssh-agent if not already running
+if ! pgrep -U "$(id -u)" ssh-agent > /dev/null; then
+    ssh-agent -s > "${HOME}/.ssh-agent-info"
+fi
+
+# Load ssh-agent information
+if [[ -f "${HOME}/.ssh-agent-info" ]]; then
+    source "${HOME}/.ssh-agent-info" > /dev/null
+fi
