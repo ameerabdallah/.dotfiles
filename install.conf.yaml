@@ -22,6 +22,16 @@
     description: 'Installing nerd fonts...'
     stdout: true
     stderr: true
+  - 
+    command: '[ -f ~/.cargo/env ] || curl https://sh.rustup.rs -sSf | sh -s -- -y'
+    description: 'Installing rustup...'
+    stdout: true
+    stderr: true
+  - 
+    command: "[ -n $(command -v nvm) ] || PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'"
+    description: 'Installing nvm...'
+    stdout: true
+    stderr: true
 
 - link:
     ~/.config/nvim:
@@ -48,7 +58,5 @@
       force: true
 
 - create:
-    - ~/.profile # This is a zsh profile file
-    - ~/.profile_aliases
-    - ~/.profile_bindings
-    - ~/.profile_paths
+    - ~/.profile.d/before.zshrc
+    - ~/.profile.d/after.zshrc

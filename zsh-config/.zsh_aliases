@@ -3,7 +3,12 @@
 alias rport="shuf -i 1024-65535 -n 1"
 alias vim="nvim"
 
-profile_aliases=~/.profile_aliases
-if [ -f $profile_aliases ]; then
-    source $profile_aliases
+# set yay alias to update system packages
+if [[ "$(uname)" == "Darwin" ]]; then
+    alias yay="brew update && brew upgrade && brew cleanup && brew doctor"
+elif [[ "$(uname)" == "Linux" ]] && [[ -e /etc/os-release ]]; then
+    # Check if distro uses apt
+    if grep -qi "ubuntu\|debian\|mint" /etc/os-release; then
+        alias yay="sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo apt autoclean"
+    fi
 fi
