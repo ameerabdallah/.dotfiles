@@ -58,5 +58,4 @@
       force: true
 
 - create:
-    - ~/.profile.d/before.zshrc
-    - ~/.profile.d/after.zshrc
+    - ~/.profile
