@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
+export NVIM_CONF="$XDG_CONFIG_HOME/nvim"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
