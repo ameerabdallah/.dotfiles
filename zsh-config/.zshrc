@@ -67,3 +67,5 @@ fi
 if [[ -f "${HOME}/.ssh-agent-info" ]]; then
     source "${HOME}/.ssh-agent-info" > /dev/null
 fi
+
+# If windows, add explorer to path
