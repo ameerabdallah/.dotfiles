@@ -12,3 +12,11 @@ elif [[ "$(uname)" == "Linux" ]] && [[ -e /etc/os-release ]]; then
         alias yay="sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo apt autoclean"
     fi
 fi
+
+# set ls aliases to eza if installed
+if [[ -x "$(command -v eza)" ]]; then
+    alias ls='eza --icons --color=always --group-directories-first'
+    alias l='eza -l --icons --color=always --group-directories-first'
+    alias ll='eza -alF --icons --color=always --group-directories-first'
+    alias la='eza -a --icons --color=always --group-directories-first'
+fi

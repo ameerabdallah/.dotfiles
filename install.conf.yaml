@@ -27,8 +27,13 @@
     description: 'Installing rustup...'
     stdout: true
     stderr: true
+  -
+    command: 'command -v eza >/dev/null 2>&1 || ./scripts/install_eza.sh'
+    description: 'Installing eza...'
+    stdout: true
+    stderr: true
   - 
-    command: "[ -n $(command -v nvm) ] || PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'"
+    command: " [ -f ~/.nvm/nvm.sh ] || PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash'"
     description: 'Installing nvm...'
     stdout: true
     stderr: true
