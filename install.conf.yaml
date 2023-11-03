@@ -13,6 +13,11 @@
     stdout: true
     stderr: true
   -
+    command: './scripts/install_packages.sh'
+    description: 'Installing packages...'
+    stdout: true
+    stderr: true
+  -
     command: '[ -d ~/.oh-my-zsh/ ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended'
     description: 'Installing oh-my-zsh...'
     stdout: true
@@ -25,11 +30,6 @@
   - 
     command: '[ -f ~/.cargo/env ] || curl https://sh.rustup.rs -sSf | sh -s -- -y'
     description: 'Installing rustup...'
-    stdout: true
-    stderr: true
-  -
-    command: 'command -v eza >/dev/null 2>&1 || ./scripts/install_eza.sh'
-    description: 'Installing eza...'
     stdout: true
     stderr: true
   - 
