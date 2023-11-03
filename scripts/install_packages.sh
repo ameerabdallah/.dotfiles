@@ -1,5 +1,10 @@
 #!/bin/bash
 
+indent() {
+    sed 's/^/    /'
+}
+
+
 # blue
 info() {
     echo -e "\033[0;34m$1\033[0m"
@@ -15,7 +20,7 @@ warning() {
     echo -e "\033[0;33m$1\033[0m"
 }
 
-
+{
 # determine OS
 os=$(uname)
 case "$os" in
@@ -35,14 +40,14 @@ case "$os" in
         )
 
         missing_packages=()
- 
+
         # check if packages are installed
         info "Checking if packages are installed..."
         for package in "${packages[@]}"; do
             # if not installed, add to missing_packages
             dpkg -s "$package" >/dev/null 2>&1 || missing_packages+=("$package") 
         done
-        
+
         if [ ${#missing_packages[@]} -eq 0 ]; then
             info "All packages are already installed."
             exit 0
@@ -93,14 +98,14 @@ case "$os" in
         )
 
         missing_packages=()
-        
+
         # check if packages are installed
         info "Checking if packages are installed..."
 
         for package in "${packages[@]}"; do
             # if not installed, add to missing_packages
             info "Checking if $package is installed..."
-            if [ ! brew list "$package" >/dev/null 2>&1 ] ; then
+            if ! brew list "$package" >/dev/null 2>&1 ; then
                 warning "$package is not installed"
                 missing_packages+=("$package") 
             fi
@@ -121,4 +126,4 @@ case "$os" in
         echo "Unsupported OS: $os"
         exit 1
 esac
-
+} | indent
