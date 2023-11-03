@@ -1,12 +1,8 @@
 #!/bin/bash
 
-indent() {
-    sed 's/^/    /'
-}
-
-# green
+# cyan
 info() {
-    echo -e "\033[0;32m$1\033[0m"
+    echo -e "\033[0;36m$1\033[0m"
 }
 
 # red
@@ -19,7 +15,6 @@ warning() {
     echo -e "\033[0;33m$1\033[0m"
 }
 
-{
 if [ $# -eq 0 ]; then
     echo "No font names provided"
     exit 1
@@ -85,5 +80,3 @@ else
 fi
 
 rm -r "$tmp_dir"
-} | indent
-
