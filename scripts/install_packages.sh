@@ -2,7 +2,7 @@
 
 # blue
 info() {
-    echo -e "\033[0;32m$1\033[0m"
+    echo -e "\033[0;34m$1\033[0m"
 }
 
 # red
@@ -86,9 +86,7 @@ case "$os" in
             "gnupg"
             "jq"
             "make"
-            "python3"
-            "python3-pip"
-            "python3-venv"
+            "python"
             "wget"
             "glow"
             "eza"
@@ -101,7 +99,11 @@ case "$os" in
 
         for package in "${packages[@]}"; do
             # if not installed, add to missing_packages
-            brew list "$package" >/dev/null 2>&1 || missing_packages+=("$package") 
+            info "Checking if $package is installed..."
+            if [ ! brew list "$package" >/dev/null 2>&1 ] ; then
+                warning "$package is not installed"
+                missing_packages+=("$package") 
+            fi
         done
 
         if [ ${#missing_packages[@]} -eq 0 ]; then
