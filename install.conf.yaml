@@ -8,7 +8,7 @@
 # Shell is put before link because we need to create the zsh config files before linking them
 - shell:
   - 
-    command: git submodule update --init --recursive | sed "s/^/  /"
+    command: 'git submodule update --init --recursive | sed "s/^/  /"'
     description: 'Syncing submodules...'
     stdout: true
     stderr: true
@@ -23,7 +23,7 @@
     stdout: true
     stderr: true
   -
-    command: ./scripts/install_nerd_fonts.sh Hack | sed "s/^/  /"
+    command: './scripts/install_nerd_fonts.sh Hack | sed "s/^/  /"'
     description: 'Installing nerd fonts...'
     stdout: true
     stderr: true
@@ -33,7 +33,7 @@
     stdout: true
     stderr: true
   - 
-    command: "[ -f ~/.nvm/nvm.sh ] || PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash' | sed 's/^/  /'"
+    command: '[ -f ~/.nvm/nvm.sh ] || PROFILE=/dev/null bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash" | sed "s/^/  /"'
     description: 'Installing nvm...'
     stdout: true
     stderr: true
