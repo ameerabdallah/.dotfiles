@@ -12,6 +12,7 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
+eval $(thefuck --alias)
 # if fuck is not installed, install it
 if ! command -v fuck &> /dev/null; then
   # install thefuck here
