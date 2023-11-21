@@ -12,7 +12,8 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
-if ! fuck_loc="$(type -p "fuck")" || [[ -z $fuck_loc ]]; then
+# if fuck is not installed, install it
+if ! command -v fuck &> /dev/null; then
   # install thefuck here
   pip3 install thefuck --user 
 fi
