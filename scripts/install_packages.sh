@@ -19,6 +19,15 @@ warning() {
     echo -e "\033[0;33m$1\033[0m"
 }
 
+host_name=$(hostname)
+
+source ~/.local/bin/variables.sh
+
+if [[ " ${SERVER_HOSTS[@]} " =~ " ${host_name} " ]]; then
+    warning "This is a server, skipping installing packages on $host_name"
+    exit 0
+fi
+
 # determine OS
 os=$(uname)
 case "$os" in
