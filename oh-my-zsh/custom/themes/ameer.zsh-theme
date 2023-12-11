@@ -51,6 +51,8 @@ function get_git_behind() {
 
 function add_git_vars_to_prompt() {
     PROMPT="%{%F{red}%}%n%{%f%}"
+    PROMPT+="%{%F{white}%}@%{%f%}"
+    PROMPT+="%{%F{blue}%}%m%{%f%}"
     PROMPT+="%{%F{white}%}:%{%f%}"
     PROMPT+="%{%B%}%{%F{cyan}%}%~%{%f%}"
     PROMPT+="${GIT_BRANCH}"

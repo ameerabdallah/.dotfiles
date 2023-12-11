@@ -20,6 +20,15 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
+host_name=$(hostname)
+
+source ~/.local/bin/variables.sh
+
+if [[ " ${SERVER_HOSTS[@]} " =~ " ${host_name} " ]]; then
+    warning "This is a server, skipping font installation"
+    exit 1
+fi
+
 base_url="https://github.com/ryanoasis/nerd-fonts/releases/latest/download"
 
 os=$(uname)

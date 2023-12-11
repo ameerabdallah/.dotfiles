@@ -5,6 +5,12 @@
 
 - clean: ['~', '~/.config']
 
+- link:
+    ~/.local/bin/:
+      path: 'scripts/*'
+      glob: true
+      force: true
+
 # Shell is put before link because we need to create the zsh config files before linking them
 - shell:
   - 
@@ -13,7 +19,7 @@
     stdout: true
     stderr: true
   -
-    command: './scripts/install_packages.sh | sed "s/^/  /"'
+    command: '~/.local/bin/install_packages.sh | sed "s/^/  /"'
     description: 'Installing packages...'
     stdout: true
     stderr: true
@@ -23,7 +29,7 @@
     stdout: true
     stderr: true
   -
-    command: './scripts/install_nerd_fonts.sh Hack | sed "s/^/  /"'
+    command: '~/.local/bin/install_nerd_fonts.sh Hack | sed "s/^/  /"'
     description: 'Installing nerd fonts...'
     stdout: true
     stderr: true
@@ -56,10 +62,6 @@
       force: true
     ~/.config/kitty/kitty.conf:
       path: 'kitty/kitty.conf'
-      force: true
-    ~/.local/bin/:
-      path: 'scripts/*'
-      glob: true
       force: true
 
 - create:
