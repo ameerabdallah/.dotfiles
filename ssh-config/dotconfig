@@ -1,0 +1,8 @@
+Host prox-deb
+    user ameer
+    Port 21683
+Host prox-truenas
+    user admin
+Host proxmox plex nginxproxymanager pve-route
+    user root
+

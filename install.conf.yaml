@@ -43,6 +43,11 @@
     description: 'Installing nvm...'
     stdout: true
     stderr: true
+  - 
+    command: 'grep -q "Include \~\/\.ssh\/config\.d\/dotconfig" ~/.ssh/config || printf "# ===== Automatically added by dotfiles =====\nInclude ~/.ssh/config.d/dotconfig\n# ===== Automatically added by dotfiles =====\n" >> ~/.ssh/config'
+    description: 'Adding ssh config include...'
+    stdout: true
+    stderr: true
 
 - link:
     ~/.config/nvim:
@@ -53,6 +58,9 @@
       force: true
     ~/:
       path: 'zsh-config/.**'
+      glob: true
+    ~/.ssh/config.d/dotconfig:
+      path: 'ssh-config/dotconfig'
       glob: true
     ~/.oh-my-zsh/custom/:
       glob: true
