@@ -5,6 +5,8 @@ set -e
 ## Check if -u or --pull is passed
 if [[ "$1" == "-u" || "$1" == "--pull" ]]; then
   git pull
+  # remove the -u or --pull from the arguments
+  shift
 fi
 
 CONFIG="install.conf.yaml"
