@@ -2,6 +2,11 @@
 
 set -e
 
+## Check if -u or --pull is passed
+if [[ "$1" == "-u" || "$1" == "--pull" ]]; then
+  git pull
+fi
+
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
 
@@ -12,7 +17,7 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
-eval $(thefuck --alias)
+eval "$(thefuck --alias)"
 # if fuck is not installed, install it
 if ! command -v fuck &> /dev/null; then
   # install thefuck here
