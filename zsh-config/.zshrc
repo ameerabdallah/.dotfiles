@@ -3,6 +3,8 @@ export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export NVIM_CONF="$XDG_CONFIG_HOME/nvim"
 
+touch "$HOME/.zshenv" # ensure the file exists
+
 # Maybe will add later
 # ZINIT_HOME="${XDG_CONFIG_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 #
