@@ -38,6 +38,21 @@
     description: 'Installing rustup...'
     stdout: true
     stderr: true
+  -
+    command: '[ -f ~/.cargo/env ] && rustup update | sed "s/^/  /"'
+    description: 'Updating rust...'
+    stdout: true
+    stderr: true
+  -
+    command: '[ -f ~/.cargo/bin/bob ] || ~/.cargo/bin/cargo install bob-nvim | sed "s/^/  /"'
+    description: "Installing bob-nvim..."
+    stdout: true
+    stderr: true
+  -
+    command: '~/.cargo/bin/bob use nightly | sed "s/^/  /"'
+    description: "Setting bob-nvim to use nightly..."
+    stdout: true
+    stderr: true
   - 
     command: '[ -f ~/.nvm/nvm.sh ] || PROFILE=/dev/null bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash" | sed "s/^/  /"'
     description: 'Installing nvm...'
