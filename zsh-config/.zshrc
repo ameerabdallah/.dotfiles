@@ -44,7 +44,6 @@ export EDITOR='nvim'
 # User configuration
 source ~/.profile
 
-eval $(thefuck --alias)
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -71,7 +70,6 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting 
     colored-man-pages 
-    thefuck
     nvm
 )
 
