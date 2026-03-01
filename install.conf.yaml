@@ -28,6 +28,17 @@
     description: 'Installing oh-my-zsh...'
     stdout: true
     stderr: true
+  # Ensure that .zshrc sources .zshrc_shared, creating .zshrc if it doesn't exist. 
+  # This is necessary because the linked .zshrc_shared contains important configurations 
+  # that need to be sourced in the main .zshrc file.
+  # We decide not to use the ~/.zshrc symlink and use ~/.zshrc_shared since a lot of programs that
+  # have zsh integration end up writing to ~/.zshrc. This makes it difficult to separate the configuration for
+  # stuff we don't want to share across machines like miniconda
+  -
+    command: 'touch ~/.zshrc && grep -qF "source \"$HOME/.zshrc_shared\"" ~/.zshrc || echo "\nsource \"$HOME/.zshrc_shared\"" >> ~/.zshrc'
+    description: 'Ensuring ~/.zshrc sources .zshrc_shared...'
+    stdout: true
+    stderr: true
   -
     command: '~/.local/bin/install_nerd_fonts.sh Hack | sed "s/^/  /"'
     description: 'Installing nerd fonts...'
